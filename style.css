@@ -81,7 +81,7 @@ a{
 
 .img-container{
     height: 90vh;
-    background-image: url("Images/ocean1.jpg");
+    background-image: url("assets/backdrop2.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
