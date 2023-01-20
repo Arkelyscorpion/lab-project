@@ -144,10 +144,11 @@ a{
 
 .illusimg{
     width: 50%;
+    padding: 1rem;
 }
 
 .illus span{
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: bold;
     display: block;
     color: #ade8f4;
@@ -418,4 +419,8 @@ footer{
         transform: translateY(-5000%);
         opacity: 0;
     }
+}
+
+#contact{
+    padding: 0.5rem 0rem 1rem 0rem;
 }

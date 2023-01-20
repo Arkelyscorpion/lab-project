@@ -1,0 +1,27 @@
+body{
+}
+
+.login-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 0.4 );
+    margin: 5rem;
+    background-color: white;
+}
+
+.login-container{
+    margin: 2rem;
+}
+
+.login-field{
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.login-field input{
+    background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	width: 100%;
+}

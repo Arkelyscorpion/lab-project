@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito+Sans&display=swap" rel="stylesheet">
@@ -36,25 +37,40 @@
 
     </header>
 
-    <section>
+    <section class="login-section">
         <div class="login-container">
             <form>
-                <label>First Name:</label>
-                <input type="text" id="firstname" placeholder = "First Name">
-                
-                <label>Last Name:</label>
-                <input type="text" id="lastname" placeholder = "Last Name">
-                
-                <label>Date of Birth:</label>
-                <input type="date" id="dob" placeholder = "Date of birth">
-                
-                <label>Email id:</label>
-                <input type="email" id="email" placeholder = "Email">
 
+                <h3>Personal</h3>
                 <hr>
-                <label> Institution details</label>
-                <label>Institution Name:</label>
-                <input type="text" id="institution" placeholder = "Institution name">
+
+                <div class="login-field" >
+                    <label>First Name:</label>
+                    <input type="text" id="firstname" placeholder = "First Name">
+                </div>
+
+                <div class="login-field" >
+                    <label>Last Name:</label>
+                    <input type="text" id="lastname" placeholder = "Last Name">
+                </div>
+
+                <div class="login-field" >
+                    <label>Date of Birth:</label>
+                    <input type="date" id="dob" placeholder = "Date of birth">
+                </div>
+
+                <div class="login-field" >
+                    <label>Email id:</label>
+                    <input type="email" id="email" placeholder = "Email">
+                </div>
+
+                <h3>Institution Details</h3>
+                <hr>
+
+                <div class="login-field" >
+                    <label>Institution Name:</label>
+                    <input type="text" id="institution" placeholder = "Institution name">
+                </div>
 
             </form>
 
