@@ -1,4 +1,5 @@
 const institutionsTable = document.getElementById("institutions-table");
+let searchInput = document.getElementById("search")
 
 const mockData = [
     { id: 1, code: "ABCD", name: "University of Mumbai", state: "Maharashtra" },
@@ -12,7 +13,20 @@ const mockData = [
     { id: 9, code: "GHIJ", name: "University of Pune", state: "Maharashtra" },
     { id: 10, code: "KLMN", name: "Indian Institute of Technology Kharagpur", state: "West Bengal" }
 ];
+
+let tempData = [];
   
+const renderFilteredTable = (data) => {
+    data.forEach((item) => addNewInstitution(item));
+}
+
+const deleteRows = () => {
+    let tableLength = institutionsTable.rows.length;
+    for( let i= tableLength-1;i>0;i--){
+        institutionsTable.deleteRow(i);
+    }
+}
+
 const addNewInstitution = (item) => {
     let newRow = institutionsTable.insertRow(-1);
 
@@ -27,7 +41,27 @@ const addNewInstitution = (item) => {
     cstate.innerHTML = item["state"];
 }
 
+// renderFilteredTable(mockData);
 mockData.forEach((item) => addNewInstitution(item));
+
+const filterData = () => {
+    let query = searchInput.value.toLowerCase();
+    // console.log(query)
+    tempData = mockData.filter((item)=> item["name"].toLowerCase().includes(query))
+    // console.log(tempData.length)
+    deleteRows();
+    if(tempData.length == 0){
+        let newRow = institutionsTable.insertRow(-1);
+        let message = newRow.insertCell(0);
+        message.innerHTML = "No results found";
+    }
+    else{
+        renderFilteredTable(tempData)
+    }
+}
+
+searchInput.addEventListener("keyup",filterData);
+
 
 
 
