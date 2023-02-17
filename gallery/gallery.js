@@ -15,3 +15,12 @@ function createBubble()
 }
 
 setInterval(createBubble,3000)
+
+
+$(document).ready(function(){
+    $(".grid-item").mouseover(function(){
+        $(this).css("transform","rotate(0deg)");
+    }).mouseout(function(){
+        $(this).css("transform","rotate(-2deg)");
+    });;
+});

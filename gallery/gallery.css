@@ -42,29 +42,27 @@
     z-index: -2;
     top: 0;
 }
-
-/* Grid Item */
-
 .gridbody{
-    /* background-color: #eec0c6;
+    background-color: #eec0c6;
     background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
 
-    /* background-color: #63a4ff;
-    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%); */
+     background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%); 
 
-    /* background-color: #abe9cd;
-    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%); */
-
-    /* background-color: #aee1f9;
-    background-image: linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%); */
-
-    /* background-color: #fde7f9;
-    background-image: linear-gradient(315deg, #fde7f9 0%, #aacaef 74%); */
-/* 
     background-color: #abe9cd;
-    background-image: linear-gradient(315deg, #8eb8a5 0%, #5da6bd 74%); */
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
 
-    background-image: url("Images/bg.jpg");
+    background-color: #aee1f9;
+    background-image: linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%);
+
+    background-color: #fde7f9;
+    background-image: linear-gradient(315deg, #fde7f9 0%, #aacaef 74%);
+
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #8eb8a5 0%, #5da6bd 74%);
+
+    background-image: url("/Images/bg.jpg");
+    background-size: 100%;
 
 }
 
@@ -82,12 +80,13 @@
     margin: 2rem auto;
     padding: 1rem;
     transform: rotate(-2deg);
+
     transition: all 0.3s ease;
     box-shadow: 10px 10px 10px rgb(0 0 0 / 0.4);
 }
 
 .grid-item p{
-    font-family: 'Reenie Beanie', cursive;
+    font-family: 'Raleway', cursive;
     font-size: 1.7em;
     max-width: 70%;
     text-align: center;
@@ -105,7 +104,7 @@
 }
 
 .grid-item img:hover{
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .long img{

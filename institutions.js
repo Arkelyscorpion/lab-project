@@ -1,6 +1,5 @@
 const institutionsTable = document.getElementById("institutions-table");
 let searchInput = document.getElementById("search")
-
 const mockData = [
     { id: 1, code: "ABCD", name: "University of Mumbai", state: "Maharashtra" },
     { id: 2, code: "EFGH", name: "Indian Institute of Technology Delhi", state: "Delhi" },
@@ -13,13 +12,10 @@ const mockData = [
     { id: 9, code: "GHIJ", name: "University of Pune", state: "Maharashtra" },
     { id: 10, code: "KLMN", name: "Indian Institute of Technology Kharagpur", state: "West Bengal" }
 ];
-
 let tempData = [];
-  
 const renderFilteredTable = (data) => {
     data.forEach((item) => addNewInstitution(item));
 }
-
 const deleteRows = () => {
     let tableLength = institutionsTable.rows.length;
     for( let i= tableLength-1;i>0;i--){
@@ -59,10 +55,9 @@ const filterData = () => {
         renderFilteredTable(tempData)
     }
 }
-
 searchInput.addEventListener("keyup",filterData);
 
 
 
 
-
+//keyboard, click, onfocus
