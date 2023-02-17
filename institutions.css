@@ -131,10 +131,14 @@ table {
 }
 
 .search-bar button{
-    border: 0;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    background-color: #e6a51a;
-    cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #e6a51a;
+  cursor: pointer;
+}
+
+.search-bar::after{ 
+  border: 2px solid rgba(255,255,255,0.7)
 }
