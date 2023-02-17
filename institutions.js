@@ -62,6 +62,24 @@ const filterData = () => {
 
 searchInput.addEventListener("keyup",filterData);
 
+const resetSearch = () => {
+    deleteRows();
+    renderFilteredTable(mockData); 
+}
+
+let keysPressed = {};
+
+document.addEventListener('keydown', (event) => {
+    keysPressed[event.key] = true;
+ 
+    if (keysPressed['Control'] && event.key == '/') {
+        searchInput.focus();
+    }
+ });
+ 
+ document.addEventListener('keyup', (event) => {
+    delete keysPressed[event.key];
+ });
 
 
 
