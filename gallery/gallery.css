@@ -171,3 +171,22 @@
 #contact{
     padding: 0.5rem 0rem 1rem 0rem;
 }
+
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+  }
+
+  .progress-container {
+    width: 100%;
+    height: 4px;
+    background: #003f60;
+  }
+  .progress-bar {
+    height: 4px;
+    background: #08d3da;
+    width: 0%;
+  }
