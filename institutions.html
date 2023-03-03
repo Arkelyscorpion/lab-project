@@ -61,6 +61,12 @@
         </tbody>
       </table>
 
+      <div>
+        <button class="pagination-button" onclick="fetchPrev()">Prev</button>
+        <p id="pagination-info"></p>
+        <button class="pagination-button" onclick="fetchNext()">Next</button>
+      </div>
+
 
     <!-- Footer -->
 
@@ -97,7 +103,11 @@
         <p class="copyrights">All rights reserved @2022</p>
     </footer>
 
+    <button onclick="loadJSON()">FETCH DATA FROM API</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="institutions.js"></script>
+    
 </body>
 
 </html>

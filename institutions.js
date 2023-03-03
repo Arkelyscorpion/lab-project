@@ -1,21 +1,31 @@
 const institutionsTable = document.getElementById("institutions-table");
+const paginationInfo = document.getElementById("pagination-info")
 let searchInput = document.getElementById("search")
-const mockData = [
-    { id: 1, code: "ABCD", name: "University of Mumbai", state: "Maharashtra" },
-    { id: 2, code: "EFGH", name: "Indian Institute of Technology Delhi", state: "Delhi" },
-    { id: 3, code: "IJKL", name: "University of Calcutta", state: "West Bengal" },
-    { id: 4, code: "MNOP", name: "Indian Institute of Technology Madras", state: "Tamil Nadu" },
-    { id: 5, code: "QRST", name: "University of Delhi", state: "Delhi" },
-    { id: 6, code: "UVWX", name: "Indian Institute of Technology Bombay", state: "Maharashtra" },
-    { id: 7, code: "YZAB", name: "University of Hyderabad", state: "Telangana" },
-    { id: 8, code: "CDEF", name: "Indian Institute of Technology Kanpur", state: "Uttar Pradesh" },
-    { id: 9, code: "GHIJ", name: "University of Pune", state: "Maharashtra" },
-    { id: 10, code: "KLMN", name: "Indian Institute of Technology Kharagpur", state: "West Bengal" }
+
+let mockData = [
+    // { id: 1, code: "ABCD", name: "University of Mumbai", state: "Maharashtra" },
+    // { id: 2, code: "EFGH", name: "Indian Institute of Technology Delhi", state: "Delhi" },
+    // { id: 3, code: "IJKL", name: "University of Calcutta", state: "West Bengal" },
+    // { id: 4, code: "MNOP", name: "Indian Institute of Technology Madras", state: "Tamil Nadu" },
+    // { id: 5, code: "QRST", name: "University of Delhi", state: "Delhi" },
+    // { id: 6, code: "UVWX", name: "Indian Institute of Technology Bombay", state: "Maharashtra" },
+    // { id: 7, code: "YZAB", name: "University of Hyderabad", state: "Telangana" },
+    // { id: 8, code: "CDEF", name: "Indian Institute of Technology Kanpur", state: "Uttar Pradesh" },
+    // { id: 9, code: "GHIJ", name: "University of Pune", state: "Maharashtra" },
+    // { id: 10, code: "KLMN", name: "Indian Institute of Technology Kharagpur", state: "West Bengal" }
 ];
+
+let pageCount = 0;
+let mockJSONData = {};
+const URL = "MOCK_DATA.json";
+
+$(document).ready(loadJSON)
+
 let tempData = [];
 const renderFilteredTable = (data) => {
     data.forEach((item) => addNewInstitution(item));
 }
+
 const deleteRows = () => {
     let tableLength = institutionsTable.rows.length;
     for( let i= tableLength-1;i>0;i--){
@@ -39,6 +49,10 @@ const addNewInstitution = (item) => {
 
 // renderFilteredTable(mockData);
 mockData.forEach((item) => addNewInstitution(item));
+
+
+
+// Search Filter Functionality
 
 const filterData = () => {
     let query = searchInput.value.toLowerCase();
@@ -79,3 +93,76 @@ document.addEventListener('keydown', (event) => {
 
 
 //keyboard, click, onfocus
+
+
+//AJAX Stuff
+
+function loadJSON(){
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function(){
+        let obj = {}
+        obj = JSON.parse(xhr.responseText);
+
+        for(index in obj){
+            if(index >= pageCount && index < pageCount+10){
+                mockData.push(obj[index])
+            }
+        }
+
+        paginationInfo.innerText = `${pageCount} - ${pageCount+10}`
+        renderFilteredTable(mockData); 
+    }
+
+    xhr.open("GET",URL,true);
+    xhr.send();
+}
+
+function fetchNext(){
+        const xhr = new XMLHttpRequest();
+
+        xhr.onload = function(){
+            let obj = {}
+            obj = JSON.parse(xhr.responseText);
+
+            mockData = []
+            pageCount += 10;
+            deleteRows();
+
+            for(index in obj){
+                if(index >= pageCount && index < pageCount+10){
+                    mockData.push(obj[index])
+                }
+            }
+    
+            paginationInfo.innerText = `${pageCount} - ${pageCount+10}`
+            renderFilteredTable(mockData); 
+        }
+    
+        xhr.open("GET",URL);
+        xhr.send();
+}
+
+function fetchPrev(){
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function(){
+        let obj = {}
+        obj = JSON.parse(xhr.responseText);
+
+        mockData = []
+        pageCount -= 10;
+        deleteRows();
+
+        for(index in obj){
+            if(index >= pageCount && index < pageCount+10){
+                mockData.push(obj[index])
+            }
+        }
+        paginationInfo.innerText = `${pageCount} - ${pageCount+10}`
+        renderFilteredTable(mockData); 
+    }
+
+    xhr.open("GET",URL);
+    xhr.send();
+}
