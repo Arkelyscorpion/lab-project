@@ -37,29 +37,29 @@
 
     <section class="login-section">
         <div class="login-container">
-            <form>
+            <form method="get" action="http://localhost:8080/UserDetail">
 
                 <h3>Personal</h3>
                 <hr>
 
                 <div class="login-field" >
                     <label>First Name:</label>
-                    <input type="text" id="firstname" placeholder = "First Name">
+                    <input type="text" id="firstname" placeholder = "First Name" name="firstname">
                 </div>
 
                 <div class="login-field" >
                     <label>Last Name:</label>
-                    <input type="text" id="lastname" placeholder = "Last Name">
+                    <input type="text" id="lastname" placeholder = "Last Name" name="lastname">
                 </div>
 
                 <div class="login-field" >
                     <label>Date of Birth:</label>
-                    <input type="date" id="dob" placeholder = "Date of birth">
+                    <input type="date" id="dob" placeholder = "Date of birth" name="dob">
                 </div>
 
                 <div class="login-field" >
                     <label>Email id:</label>
-                    <input type="email" id="email" placeholder = "Email">
+                    <input type="email" id="email" placeholder = "Email" name="email">
                 </div>
 
                 <h3>Institution Details</h3>
@@ -67,9 +67,12 @@
 
                 <div class="login-field" >
                     <label>Institution Name:</label>
-                    <input type="text" id="institution" placeholder = "Institution name">
+                    <input type="text" id="institution" placeholder = "Institution name" name="institution">
                 </div>
 
+                <div class="login-field" >
+                    <input type="submit" id="submit" value = "Submit Details" name="submit">
+                </div>
             </form>
 
         </div>
