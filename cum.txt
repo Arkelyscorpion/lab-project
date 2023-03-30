@@ -1,0 +1,4 @@
+javac -cp "C:\apache-tomcat-9.0.72\lib\*" filename.java
+%CATALINA_HOME%\bin\shutdown.bat
+%CATALINA_HOME%\bin\startup.bat
+C:\apache-tomcat-9.0.72\webapps\ROOT\WEB-INF\classes
