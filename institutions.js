@@ -35,15 +35,27 @@ const deleteRows = () => {
 
 const addNewInstitution = (item) => {
     let newRow = institutionsTable.insertRow(-1);
+    var button = document.createElement("button");
+    button.innerHTML = "Visit instituion page";
+
+    var a = document.createElement('a');
+    a.style.color = "blue"; 
+                  
+    // Create the text node for anchor element.
+    var link = document.createTextNode(item['name']);
+        
+    // Append the text node to anchor element.
+    a.appendChild(link);
+    a.href = "http://localhost:8080/institutiondetail/institution.jsp?name="+item['name'];
 
     let cid = newRow.insertCell(0);
     let ccode = newRow.insertCell(1);
     let cname = newRow.insertCell(2);
     let cstate = newRow.insertCell(3);
-
+    
     cid.innerHTML = item["id"];
     ccode.innerHTML = item["code"];
-    cname.innerHTML = item["name"];
+    cname.appendChild(a);
     cstate.innerHTML = item["state"];
 }
 
