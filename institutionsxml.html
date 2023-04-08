@@ -8,10 +8,15 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="institutions.css">
+    <link rel="stylesheet" href="institutionsxml.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito+Sans&display=swap" rel="stylesheet">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <title>EConnect</title>
 
 </head>
@@ -34,47 +39,21 @@
         </nav>
     </header>
 
-    <!-- Search Box -->
+    <div id="app" class="container">
 
-    <div class="search-section-container">
-        <div>
-            <p class="search-heading">The Great Indian Database</p>
-            <form action="" class="search-bar" onreset="resetSearch()">
-                <input id="search" type="text" placeholder="Search" name="q">
-                <button type="reset"><img src="/assets/xbox.svg" alt="search" width="10px"></button>
-            </form>
-        </div>
     </div>
 
-    <!-- Table -->
 
-    <!-- <form method="get" action="http://localhost:8080/institutiondetail/institution.jsp"> -->
-        <table id="institutions-table">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Code</th>
-                <th scope="col">Name</th>
-                <th scope="col">State</th>
-                <!-- <th scope="col">Visit page</th> -->
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-    <!-- </form> -->
-    
-
-      <div class="pagination">
-        <button class="pagination-button" onclick="fetchPrev()">Prev</button>
-        <p id="pagination-info"></p>
-        <button class="pagination-button" onclick="fetchNext()">Next</button><br>
-      </div>
-      <a href="institutionsxml.html" style="color: blue;">View as XML</a>
-
-
-      <p id="demo"></p>
-
+    <template id="item_template">
+        <div class="item">
+            <div class="item-content">
+                <h2 id="college">{{ college }}</h2>
+                <p id="type">{{ type }}</p>
+                <p id="state">{{ state }}</p>
+                <p id="district">{{ district }}</p>
+            </div>
+        </div>
+    </template>
 
     <!-- Footer -->
 
@@ -113,7 +92,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="institutions.js"></script>
+    <script src="institutionsxml.js"></script>
     
 </body>
 

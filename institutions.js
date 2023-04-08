@@ -122,7 +122,7 @@ function loadJSON(){
             }
         }
 
-        paginationInfo.innerText = `${pageCount} - ${pageCount+10}`
+        paginationInfo.innerText = `${pageCount+1} - ${pageCount+10}`
         renderFilteredTable(mockData); 
     }
 
@@ -147,7 +147,7 @@ function fetchNext(){
                 }
             }
     
-            paginationInfo.innerText = `${pageCount} - ${pageCount+10}`
+            paginationInfo.innerText = `${pageCount+1} - ${pageCount+10}`
             renderFilteredTable(mockData); 
         }
     
@@ -178,3 +178,4 @@ function fetchPrev(){
     xhr.open("GET",URL);
     xhr.send();
 }
+

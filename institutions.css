@@ -143,3 +143,12 @@ table {
 .search-bar::after{ 
   border: 2px solid rgba(255,255,255,0.7)
 }
+
+
+.pagination{
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  justify-content: center;
+
+}
