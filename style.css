@@ -1,3 +1,7 @@
+*{
+    font-family: 'Nunito Sans', sans-serif;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -170,12 +174,17 @@ footer{
     outline: 0;
     font-size: 1.1rem;
     transition: border ease 0.3s;
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
 }
 .emailbuttoncontainer button{
     padding: 1em 2em;
     border: 0;
     border-radius: 5%;
     cursor: pointer;
+    color: black;
+    background-color: #ade8f4;
+    font-family: 'Nunito Sans', sans-serif;
 }
 .emailbuttoncontainer{
     margin: 1rem;
@@ -189,4 +198,16 @@ footer{
     text-align: center;
     padding: 1rem;
     margin: 0;
+}
+
+.roles-section h3{
+    color: rgb(0,63,96);
+}
+
+.roles-section p{
+    margin-left: 2em;
+}
+
+.roles-section{
+    margin-bottom: 2em;
 }

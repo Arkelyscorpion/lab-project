@@ -25,7 +25,6 @@ function loadXML(){
             addItem(container, tmpl, i); 
         }
     }   
-
 }
 
 

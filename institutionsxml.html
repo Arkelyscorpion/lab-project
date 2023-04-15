@@ -39,6 +39,7 @@
         </nav>
     </header>
 
+    <div class="content"><h1>Institutions</h1></div>
     <div id="app" class="container">
 
     </div>
@@ -47,10 +48,10 @@
     <template id="item_template">
         <div class="item">
             <div class="item-content">
-                <h2 id="college">{{ college }}</h2>
-                <p id="type">{{ type }}</p>
-                <p id="state">{{ state }}</p>
-                <p id="district">{{ district }}</p>
+                <h3 id="college">{{ college }}</h3>
+                <p id="type"><strong>Type : </strong> {{ type }}</p>
+                <p id="state"><strong>Location : </strong>{{ state }},{{ district }}</p>
+                <!-- <p id="district"></p> -->
             </div>
         </div>
     </template>

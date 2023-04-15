@@ -9,8 +9,8 @@
     flex: 0 0 calc(33% - 1em);
     margin: 0.30em 0.5em;
     border: 1px solid black;;
-    border-radius: 10%;
-    background-color: beige;
+    border-radius: 5%;
+    background-color: #ade8f4;
   }
 
   .item-content{

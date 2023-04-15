@@ -36,7 +36,7 @@ const deleteRows = () => {
 const addNewInstitution = (item) => {
     let newRow = institutionsTable.insertRow(-1);
     var button = document.createElement("button");
-    button.innerHTML = "Visit instituion page";
+    button.innerHTML = "Visit institution page";
 
     var a = document.createElement('a');
     a.style.color = "blue"; 

@@ -1,4 +1,5 @@
 body{
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .login-section{
@@ -24,4 +25,15 @@ body{
 	border: none;
 	padding: 12px 15px;
 	width: 100%;
+}
+
+.submit-button{
+    border-radius: 5%;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    background-color: #003f60;
+    width: 100%;
+    padding: 1em;
+    margin: 1rem;
 }
