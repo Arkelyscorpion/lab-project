@@ -1,5 +1,5 @@
 <%@page language="java" pageEncoding="utf-8" contentType="text/html; charset=utf-8" %>
-<%@ page import="java.sql.*, java.util.*, java.net.*" %>
+<%@ page import="java.sql.*, java.util.*, java.net.*, java.util.Date, java.text.SimpleDateFormat" %>
 
 <html>
     <head>
@@ -34,15 +34,59 @@
             </nav>
         </header>
 
+        <%
+        // Change these details to suit your database and user details
+        
+        Connection conn  = null;
+        String connStr = "jdbc:oracle:thin:@localhost:1521:xe";
+        String dbUser  = "system";
+        String dbPass  = "rishiyanth";
+
+        String iName =  request.getParameter("eventid");
+        Statement stmt   = null;
+        ResultSet rset   = null;
+
+        try{
+          DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+          Class.forName("oracle.jdbc.OracleDriver");
+          conn = DriverManager.getConnection(connStr,dbUser,dbPass);
+        }
+        catch(SQLException e){
+        %><b>Error: </b> <%= e %><p>  <%
+        }
+
+        try{
+
+          String query = "select * from ebevents where id = '"+iName+"'";
+          //String query = "select * from ebuserdetails";
+          stmt = conn.createStatement();
+          rset = stmt.executeQuery(query);
+          SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+          SimpleDateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy");
+          while(rset.next()){ 
+            String name  = rset.getString(2);
+            String description  = rset.getString(5);         
+            Date sdate = inputFormat.parse(rset.getString(3));
+            Date edate = inputFormat.parse(rset.getString(4));
+            String startdate = outputFormat.format(sdate);
+            String enddate = outputFormat.format(edate);
+        %>
         <div class="content">
-          <h1><%= request.getParameter("eventname") %></h1>
-          <p><strong>Start Date :</strong> 15-JUN-2023</p>
-          <p><strong>End Date :</strong> 18-JUN-2023</p>
+          <h1><%= name %></h1>
+          <p><strong>Start Date :</strong> <%= startdate %> </p>
+          <p><strong>End Date :</strong> <%= enddate %> </p>
           <p><strong>Event Description :</strong></p>
           <p>
-            The conference will cover recent advances in artificial intelligence and its applications in various fields.
+            <%= description %>
           </p>
         </div>
+        <%
+        }  
+        }
+          catch (SQLException e) {
+        %>    <b>Error: </b> <%= e %><p> <%
+          }
+        %>
        
   </body>
 </html>
@@ -70,4 +114,6 @@ INSERT INTO ebevents VALUES
 INSERT INTO ebevents VALUES
   (6, 'Annual Music Festival', TO_DATE('15-JUL-2023', 'DD-MON-YYYY'), TO_DATE('17-JUL-2023', 'DD-MON-YYYY'), 'This music festival will feature performances from local and international artists across various genres, including rock, pop, jazz, and more.'); 
 
+INSERT INTO ebevents VALUES
+  (7, 'Non technical events', TO_DATE('17-JUL-2023', 'DD-MON-YYYY'), TO_DATE('25-JUL-2023', 'DD-MON-YYYY'), 'This is a one week long event where students can exhibit their talents in dance, music , comedy, film making and so on.');
 -->

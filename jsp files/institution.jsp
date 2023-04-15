@@ -49,7 +49,7 @@
         Connection conn  = null;
         String connStr = "jdbc:oracle:thin:@localhost:1521:xe";
         String dbUser  = "system";
-        String dbPass  = "jaggu";
+        String dbPass  = "rishiyanth";
 
         String iName =  request.getParameter("name");
         Statement stmt   = null;
@@ -66,8 +66,8 @@
 
         try{
 
-          //String query = "select * from ebuserdetails where institution_name = '"+iName+"'";
-          String query = "select * from ebuserdetails";
+          String query = "select * from ebuserdetails where institution_name = '"+iName+"'";
+          //String query = "select * from ebuserdetails";
           stmt = conn.createStatement();
           rset = stmt.executeQuery(query);
           String firstname  = "";
@@ -85,7 +85,6 @@
         <th><font face="arial" color="#FFFFFF">Email</th>
         </tr>
 
-        <p>Firstname : </p>
 
         <%
           while ( rset.next() ) {
@@ -98,7 +97,6 @@
             String outputDate = outputFormat.format(date);  
             email = rset.getString(4);         
         %>
-            <p>Firstname : <%= firstname  %></p>
             <tr bgcolor="ffffe0">
               <td align="center"><font face="arial"><b> <%= firstname  %> </b></font></td>
               <td align="center"><font face="arial"> <%= lastname %></font></td>
